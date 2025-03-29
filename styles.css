@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    background-color: #0f0f0f;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+  /* NAVIGACE NAHOŘE UPROSTŘED */
+  .header {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  .nav-links {
+    display: inline-block;
+  }
+  
+  .nav-link {
+    font-size: 1.2em;
+    margin: 0 25px;
+    text-decoration: none;
+    color: #ebebe1;
+    text-transform: uppercase;
+    transition: color 0.33s ease; /* drobně zpomalený hover */
+  }
+
+.gallery-section {
+    width: 90%;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Responzivní úpravy */
+@media (min-width: 1025px) {
+    .gallery-section {
+        width: 65%; /* Galerie bude mít šířku 65 % na obrazovkách větších než 1024px */
+    }
+}
+
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 1em;
+    }
+}
+
+/* Modal styles */
+.preview-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-height: 80%; /* Maximální výška 80% obrazovky */
+    width: auto; /* Automatická šířka, aby se přizpůsobila poměru stran */
+    max-width: 100%; /* Šířka co největší, ale maximálně 100 % */
+    height: auto; /* Automatická výška podle obsahu */
+    animation: fadeIn 0.3s;
+}
+
+.modal-content img {
+    max-height: 100%; /* Ujistěte se, že obrázek nezabere více než 100 % výšky modálního obsahu */
+    max-width: 100%; /* Ujistěte se, že obrázek nezabere více než 100 % šířky modálního obsahu */
+    object-fit: contain; /* Udržení poměru stran bez deformace */
+}
+
+.close, .share-link {
+    position: absolute;
+    top: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+.close {
+    right: 30px;
+}
+
+.share-link {
+    right: 80px;
+}
+
+.close:hover, .share-link:hover {
+    color: #fca311;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes openAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.open-animation {
+    animation: openAnimation 0.5s ease-in-out;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 30px;
+}
+
+.next {
+    right: 30px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Animace pro odjíždění obrázku */
+.slide-out {
+    animation: slideOut 0.5s forwards;
+}
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+/* Animace pro přijíždění obrázku */
+.slide-in {
+    animation: slideIn 0.5s forwards;
+}
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* --- Burger menu --- */
+.burger {
+    display: none;
+    font-size: 2rem;
+    color: #ebebe1;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+  
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  /* --- Light/Dark mode --- */
+  body.light-mode {
+    background-color: #fefefe;
+    color: #111;
+  }
+  
+  body.light-mode .nav-link,
+  body.light-mode .footer,
+  body.light-mode .gallery-item img {
+    color: #111;
+    background-color: #fff;
+  }
+  
+  #theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: inherit;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  /* --- Mobile styles --- */
+  @media (max-width: 768px) {
+    .burger {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(15, 15, 15, 0.9);
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 0;
+      border-radius: 10px;
+    }
+  
+    .nav-links.nav-active {
+      display: flex;
+    }
+  
+    .nav-link {
+      margin: 10px 0;
+    }
+  }
+  
