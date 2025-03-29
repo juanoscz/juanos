@@ -24,8 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
     "KLUB SRÁČŮ"
   ];
   const backgrounds = [
-    "URL1", "URL2", "URL3", // zkráceno pro přehlednost
-    "URL4", "URL5", "URL6", "URL7", "URL8", "URL9"
+    "https://cdn.discordapp.com/attachments/795569982079238174/1355531897534550127/bg2024berlin_1.gif?ex=67e944f4&is=67e7f374&hm=dafa3ba0f9952f0b5643ebfa47e871315fdbfcab10cf7fb5e53f2f73d409554b&",
+    "https://cdn.discordapp.com/attachments/795569982079238174/1355533744601038939/HOUBARENI_1.gif?ex=67e946ad&is=67e7f52d&hm=7084f2b2112b3dab2e0b9110141f321220854c18107b89e10477b9a0f499d670&",
+    "https://cdn.discordapp.com/attachments/795569982079238174/1355531954950246540/MATURITA_2.gif?ex=67e94502&is=67e7f382&hm=104bef935ba9a929cc92956da1d376c14884f191fbfc93fa9849a1f076b243c0&",
+    "https://cdn.discordapp.com/attachments/795569982079238174/1355525340025585664/prematurita_1.gif?ex=67e93ed9&is=67e7ed59&hm=98e74bfff4f273fc3d527ec7c7add6499f9f72918a115c0c170d6dd546d28e5a&",
+    "https://cdn.discordapp.com/attachments/795569982079238174/1355526208170885191/bgprasazu-ezgif.com-resize.gif?ex=67e93fa8&is=67e7ee28&hm=9bd0b53c94e84f3e6593207861b8618dbdd2e35cb4a6e9097a996ab8933cbb2e&",
+    "https://cdn.discordapp.com/attachments/795569982079238174/1355525099910074510/vhsplesfootage.gif?ex=67e93ea0&is=67e7ed20&hm=1b36a7b0887a9cee4ec10487c65da194b8c730aeb87ba1615029cbe69dc25bb3&",
+    "https://cdn.discordapp.com/attachments/795569982079238174/1355530572205789332/budapest1.gif?ex=67e943b8&is=67e7f238&hm=aaede06f88dafbd4e06e3c0c41aad1dc86eb16be621c6e97de504eb8fd009d5f&",
+    "https://cdn.discordapp.com/attachments/795569982079238174/1355525438784405554/CASINO.gif?ex=67e93ef1&is=67e7ed71&hm=298bb7bdf44dfb01332920860ddb08d8d3bf3ad47f790c201925a66f59ad031b&",
+    "https://cdn.discordapp.com/attachments/795569982079238174/1355528141476466778/kevinperygolarge.gif?ex=67e94175&is=67e7eff5&hm=696a2be82b12a40a5d0097716d850acab4b4ce33f1cfc61fafd9453148e07407&"
   ];
 
   function updateZIndices() {
